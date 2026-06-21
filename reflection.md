@@ -26,6 +26,22 @@ Bug 4: Instructions say to guess a number between 0-100, when I guess 0, the hin
 Bug 5: On Normal Mode when I guess a number my attempts counter does not decrease. 
 
 Bug 6: When I clicl New Game while in Normal mode, my attempts increase by 1.
+
+---
+
+## 1b. Bug Investigation Process
+
+**Focus:** Bug 1 (backwards hint directions) - the critical logic bug blocking gameplay.
+
+**Investigation method:**
+- Played game manually: guessed 100, got "Go HIGHER!" (incorrect). Guessed 99, got "Go LOWER!" (incorrect). Hints pointing wrong directions.
+- Read code: Located check_guess function (lines 32-47). Noticed if/else returning "Too High" with "Go HIGHER!" message when guess > secret. Identified backwards logic.
+- Set up VS Code debugger: Installed Python extension, created .vscode/launch.json, set breakpoint at line 37 (the comparison).
+- Traced execution: Made guess 99, secret '70'. Watched debugger show comparison failed (int vs string TypeError), caught by except block, string comparison happened.
+- Confirmed bug: String comparison '99' > '70' = True, returned "Too High" with "Go HIGHER!" - backwards direction.
+
+**Scope decision:** Bug 1 is critical (breaks core gameplay). Other bugs (attempts counter, session state) are secondary. Fixed Bug 1 first.
+
 ---
 
 ## 2. How did you use AI as a teammate?
