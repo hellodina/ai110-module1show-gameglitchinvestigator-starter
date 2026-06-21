@@ -4,7 +4,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 ## 1. What was broken when you started?
 
-- What did the game look like the first time you ran it?
+- What did the game look like the first time you ran it? The game loaded in the browser and looked very simple, a number guessing game. The objective is to guess the correct number betwween 1-100 with 7 attempts to begin. On the left-hand panel it lets me adjust the game's difficulty level.
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
 
@@ -14,10 +14,18 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
 
+Bug 1: I entered 100 as my first guess and looked at the hint which said to go lower. I went to 99 next and it said to go higher. So the logic that determines whether or not I got the right guess is incorrect.
+
+Bug 2: When I opened the Developer Debug info I see a field called secret and when I enter this secret I get the correct guess. This should not b visible?
+
+Bug 3: The number of attempts does not stay consistent ie when I click "new game" the number of attempts changes on each refresh 
+
+Bug 4: Instructions say to guess a number between 0-100, when I guess 0, the hint says "Go Lower" and when I guess 100, the hint says "Go Higher", so the hint is not working as it should given the game's instructions.
+
+Bug 5: On Normal Mode when I guess a number my attempts counter does not decrease. 
+
+Bug 6: When I clicl New Game while in Normal mode, my attempts increase by 1.
 ---
 
 ## 2. How did you use AI as a teammate?
